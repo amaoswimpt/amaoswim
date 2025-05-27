@@ -1,7 +1,7 @@
 /* FONTES */
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400&display=swap');
 
-/* RESET */
+/* RESET E BASE */
 * {
     margin: 0;
     padding: 0;
@@ -10,13 +10,14 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
+    color: #333;
 }
 
 /* HEADER */
 header {
     background-color: white;
     text-align: center;
-    padding: 0px;
+    padding: 0;
 }
 
 header h1 {
@@ -26,27 +27,56 @@ header h1 {
     font-family: 'Anton', sans-serif;
 }
 
-/* NAV */
+/* NAVEGAÇÃO PRINCIPAL */
 nav {
     background-color: #8B0000;
     display: flex;
     justify-content: center;
     padding: 10px 0;
+    position: relative;
 }
 
-nav a {
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links a {
     color: white;
     text-decoration: none;
     margin: 0 20px;
     font-size: 16px;
     font-family: 'Montserrat', sans-serif;
-
+    transition: all 0.2s ease;
 }
+
 .nav-links a:hover {
     text-decoration: underline;
 }
 
-/* HERO */
+/* MENU HAMBURGER */
+.hamburger {
+    display: flex;
+    cursor: pointer;
+    padding: 10px;
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 24px;
+}
+
+.hamburger-line {
+    width: 25px;
+    height: 2px;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+/* SEÇÕES DO SITE */
 .hero {
     background-color: #eee;
     height: 400px;
@@ -57,7 +87,6 @@ nav a {
     font-size: 24px;
 }
 
-/* PRODUTOS */
 .section-title {
     text-align: center;
     font-size: 60px;
@@ -91,58 +120,42 @@ footer {
     background-color: #8B0000;
     color: white;
     font-size: 14px;
-
 }
 
-/* RESPONSIVO */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 48px;
-    }
-
-    nav {
-        padding: 6px 0; /* Barra mais estreita */
-        overflow-x: auto; /* Scroll horizontal se necessário */
-        white-space: nowrap; /* Impede quebra de linha */
-    }
-
-    nav a {
-        font-size: 12px; /* Texto menor */
-        margin: 0 10px; /* Espaçamento reduzido */
-        display: inline-block; /* Garante alinhamento */
-    }
-
-    .hero {
-        height: 200px;
-    }
-
-    .product {
-        width: calc(50% - 10px); /* 2 colunas */
-    }
+.social-icons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
 }
 
 .social-icons a {
-    display: inline-block; /* Remove flex para evitar heranças */
-    text-align: center;
-    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 15px;
     text-decoration: none;
+    color: white;
+    width: 100%;
+    max-width: 200px;
 }
 
 .social-icons a i {
-    display: block; /* Força o ícone para linha própria */
-    margin-bottom: 5px; /* Espaço entre ícone e texto */
     font-size: 24px;
 }
 
 .instagram-handle {
-    display: block; /* Garante que o texto fique em nova linha */
+    display: block;
     font-size: 14px;
 }
+
 .footer-links {
     display: flex;
     justify-content: center;
     gap: 20px;
     margin-bottom: 15px;
+    flex-wrap: wrap;
 }
 
 .footer-links a {
@@ -155,31 +168,100 @@ footer {
     text-decoration: underline;
 }
 
-.social-icons {
-    display: flex;
-    justify-content: center; /* Centraliza horizontalmente */
-    margin-bottom: 15px;
-}
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+    /* Header */
+    header h1 {
+        font-size: 48px;
+    }
 
-.social-icons a {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centraliza ícone e texto verticalmente */
-    gap: 5px; /* Espaço entre ícone e texto */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-    padding-bottom: 15px;
-    text-decoration: none;
-    color: white;
-}
-.social-icons a {
-    width: 100%; /* Opcional: ajuste conforme necessário */
-    max-width: 200px; /* Limita a largura se preferir */
-}
+    /* Navigation */
+    .hamburger {
+        display: flex;
+    }
 
-/* Ajuste para telas muito pequenas (ex.: iPhone SE) */
-@media (max-width: 480px) {
-    nav a {
-        font-size: 11px;
-        margin: 0 6px;
+    .nav-links {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 70%;
+        height: 100vh;
+        background-color: #8B0000;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        z-index: 900;
+        padding-top: 60px;
+    }
+
+    .nav-links.active {
+        left: 0;
+        box-shadow: 2px 0 15px rgba(0,0,0,0.3);
+    }
+
+    .nav-links a {
+        margin: 15px 0;
+        font-size: 18px;
+        padding: 10px;
+    }
+
+    /* Hamburger animation */
+    .hamburger.active .hamburger-line:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .hamburger.active .hamburger-line:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .hamburger-line:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+
+    /* Other sections */
+    .hero {
+        height: 200px;
+    }
+
+    .product {
+        width: calc(50% - 10px);
+    }
+
+    .footer-links {
+        gap: 15px;
     }
 }
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 70%;
+    height: 100vh;
+    background-color: #8B0000;
+    color: white;
+    padding-top: 60px;
+    transition: left 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    z-index: 999;
+}
+
+.side-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.side-menu a:hover {
+    text-decoration: underline;
+}
+
+.side-menu.active {
+    left: 0;
+}
+
+
+

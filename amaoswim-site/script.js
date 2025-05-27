@@ -1,25 +1,23 @@
-/*document.addEventListener('DOMContentLoaded', function() {
-    // Transformar o nav em menu hamburguer no mobile
-    const nav = document.querySelector('nav');
-    const navLinks = nav.innerHTML;
-    const menuToggle = document.createElement('div');
 
-    menuToggle.innerHTML = '☰';
-    menuToggle.style.fontSize = '24px';
-    menuToggle.style.cursor = 'pointer';
-    menuToggle.style.padding = '10px';
 
-    // Apenas para mobile
-    if (window.innerWidth <= 768) {
-        nav.innerHTML = '';
-        nav.appendChild(menuToggle);
+console.log("JavaScript está a correr!");
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    const sideMenu = document.getElementById('sideMenu');
 
-        menuToggle.addEventListener('click', function() {
-            nav.innerHTML = nav.innerHTML.includes('SHOP ALL')
-                ? menuToggle.outerHTML
-                : menuToggle.outerHTML + navLinks;
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        hamburger.classList.toggle('active');
+    });
+
+    // Fechar menu ao clicar nos links (mobile)
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', function() {
+            if (window.innerWidth <= 768) {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+            }
         });
-    }
+    });
 });
-
- */
