@@ -49,7 +49,20 @@ nav {
     font-family: 'Montserrat', sans-serif;
     transition: all 0.2s ease;
 }
-
+.imagem_capa_1 {
+    width: 100%;         /* Preenche a largura do contêiner */
+    max-width: 800px;    /* Limita o tamanho máximo */
+    height: auto;        /* Mantém a proporção da imagem */
+    display: block;
+    margin: 0 auto;      /* Centraliza */
+}
+.imagem_capa_2 {
+    width: 100%;         /* Preenche a largura do contêiner */
+    max-width: 800px;    /* Limita o tamanho máximo */
+    height: auto;        /* Mantém a proporção da imagem */
+    display: block;
+    margin: 0 auto;      /* Centraliza */
+}
 .nav-links a:hover {
     text-decoration: underline;
 }
