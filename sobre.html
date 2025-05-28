@@ -3,27 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre Nós - AMAO</title>
+    <title>AMAO</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="imagens/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+
 </head>
+<script src="script.js"></script>
 <body>
 <header>
     <h1>AMAO</h1>
+
 </header>
 
-<main>
-    <section class="hero">
-        <p>Sobre a marca AMAO</p>
+<nav>
+    <div id="burger">
+        <div class="hamburger-line"></div>
+        <div class="hamburger-line"></div>
+        <div class="hamburger-line"></div>
+    </div>
+
+    <div class="nav-about">
+        <a>ABOUT US</a>
+
+    </div>
+</nav>
+
+<div class="side-menu" id="sideMenu">
+    <a href="index.html">HOME</a>
+    <a href="shopAll.html">SHOP ALL</a>
+    <a href="countryHeat.html">COUNTRY HEAT</a>
+    <a href="classics.html">CLASSICS</a>
+
+</div>
+
+
+<main class="about-container">
+    <section class="about-hero">
+        <h2>OUR STORY</h2>
     </section>
 
-    <section style="padding: 40px; text-align: center;">
-        <h2>Nossa história</h2>
-        <p>Somos uma marca apaixonada por moda e autenticidade. Nossa missão é trazer estilo com atitude para todos os corpos.</p>
+    <section class="about-content">
+        <div class="about-text">
+            <h3>Born from Passion</h3>
+            <p>AMAO was founded in 2020 with a simple mission: to create swimwear that combines bold design with exceptional comfort. Our name, meaning "love" in Portuguese, reflects our passion for the ocean and beach culture.</p>
+
+            <h3>Handcrafted Quality</h3>
+            <p>Each piece is carefully designed in Portugal and crafted from premium materials that stand up to sun, salt, and sand while maintaining their shape and color season after season.</p>
+
+            <h3>Sustainable Practices</h3>
+            <p>We're committed to reducing our environmental impact by using eco-friendly fabrics and responsible manufacturing processes without compromising on style or quality.</p>
+        </div>
+        <div class="about-image">
+            <img src="imagens/about-image.jpg" alt="AMAO Team at the Beach">
+        </div>
+    </section>
+
+    <section class="mission-section">
+        <div class="mission-title">
+            <h2>OUR MISSION</h2>
+        </div>
+        <div class="mission-text">
+            <p>To empower women to feel confident and beautiful in swimwear that celebrates their individuality. We believe every body is a beach body, and our designs are made to flatter all shapes and sizes.</p>
+        </div>
+    </section>
+
+    <section class="team-section">
+        <h2>MEET THE TEAM</h2>
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="member-image"></div>
+                <h4>Ana Silva</h4>
+                <p>Founder & Creative Director</p>
+            </div>
+            <div class="team-member">
+                <div class="member-image"></div>
+                <h4>Marco Oliveira</h4>
+                <p>Head of Design</p>
+            </div>
+            <div class="team-member">
+                <div class="member-image"></div>
+                <h4>Inês Costa</h4>
+                <p>Production Manager</p>
+            </div>
+        </div>
     </section>
 </main>
 
+
+
+
+
+
 <footer>
-    <p>© 2025 AMAO. Todos os direitos reservados.</p>
+    <div class="social-icons">
+        <a href="https://instagram.com/amaoswim" target="_blank">
+            <i class="fab fa-instagram"></i>
+            <span class="instagram-handle">@amaoswim</span>
+        </a>
+    </div>
+    <div class="footer-links">
+        <!-- info -->
+        <a href="sobre.html">ABOUT US</a>
+
+        <!-- apoio ao cliente -->
+        <a href="contactos.html">CONTACTS</a>
+        <a href="trocas.html">RETURNS AND EXCHANGES</a>
+        <a href="pagamento.html">PAYMENT AND DELIVERY</a>
+
+        <!-- parte legal -->
+        <a href="termos.html">TERMS AND CONDITIONS</a>
+        <a href="privacidade.html">PRIVACY POLICY</a> <!-- (Recomendo adicionar) -->
+    </div>
+
+    <p>© 2025 AMAO. All rights reserved.</p>
 </footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const burger = document.getElementById('burger');
+        const sideMenu = document.getElementById('sideMenu');
+
+        // Abre/fecha menu ao clicar no ícone hamburger
+        burger.addEventListener('click', function(event) {
+            event.stopPropagation(); // Impede que o clique se propague
+            sideMenu.classList.toggle('active');
+        });
+
+        // Fecha menu ao clicar fora
+        document.addEventListener('click', function(event) {
+            // Verifica se o clique foi fora do menu e do ícone hamburger
+            if (!sideMenu.contains(event.target) && event.target !== burger) {
+                sideMenu.classList.remove('active');
+            }
+        });
+
+        // Impede que cliques dentro do menu fechem-no
+        sideMenu.addEventListener('click', function(event) {
+            event.stopPropagation();
+        });
+    });
+</script>
+
 </body>
 </html>

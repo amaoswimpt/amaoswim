@@ -3,27 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre Nós - AMAO</title>
+    <title>AMAO</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="imagens/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+
 </head>
+<script src="script.js"></script>
 <body>
 <header>
     <h1>AMAO</h1>
+
 </header>
 
-<main>
-    <section class="hero">
-        <p>trocas</p>
-    </section>
+<nav>
+    <div id="burger">
+        <div class="hamburger-line"></div>
+        <div class="hamburger-line"></div>
+        <div class="hamburger-line"></div>
+    </div>
 
-    <section style="padding: 40px; text-align: center;">
-        <h2>Nossa história</h2>
-        <p>Somos uma marca apaixonada por moda e autenticidade. Nossa missão é trazer estilo com atitude para todos os corpos.</p>
-    </section>
-</main>
+    <div class="nav-links">
+        <a href="#">SHOP ALL</a>
+        <a href="#">COUNTRY HEAT</a>
+        <a href="#">CLASSICS</a>
+    </div>
+</nav>
+
+<div class="side-menu" id="sideMenu">
+    <a href="#">HOME</a>
+    <a href="#">SHOP ALL</a>
+    <a href="#">COUNTRY HEAT</a>
+    <a href="#">CLASSICS</a>
+
+</div>
+
+
+
+<section class="hero">
+    <img src="imagens/capa1.jpeg" alt="Imagem Capa 1" class="imagem_capa_1">
+</section>
+
+<div class="section-title">BEST SELLERS</div>
+
+<section class="product-gallery">
+    <div class="product">Produto 1</div>
+    <div class="product">Produto 2</div>
+    <div class="product">Produto 3</div>
+    <div class="product">Produto 4</div>
+</section>
+
+<section class="hero">
+    <img src="imagens/capa2.JPG" alt="Imagem Capa 2" class="imagem_capa_2">
+</section>
 
 <footer>
-    <p>© 2025 AMAO. Todos os direitos reservados.</p>
+    <div class="social-icons">
+        <a href="https://instagram.com/amaoswim" target="_blank">
+            <i class="fab fa-instagram"></i>
+            <span class="instagram-handle">@amaoswim</span>
+        </a>
+    </div>
+    <div class="footer-links">
+        <!-- info -->
+        <a href="sobre.html">ABOUT US</a>
+
+        <!-- apoio ao cliente -->
+        <a href="contactos.html">CONTACTS</a>
+        <a href="trocas.html">RETURNS AND EXCHANGES</a>
+        <a href="pagamento.html">PAYMENT AND DELIVERY</a>
+
+        <!-- parte legal -->
+        <a href="termos.html">TERMS AND CONDITIONS</a>
+        <a href="privacidade.html">PRIVACY POLICY</a> <!-- (Recomendo adicionar) -->
+    </div>
+
+    <p>© 2025 AMAO. All rights reserved.</p>
 </footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const burger = document.getElementById('burger');
+        const sideMenu = document.getElementById('sideMenu');
+
+        // Abre/fecha menu ao clicar no ícone hamburger
+        burger.addEventListener('click', function(event) {
+            event.stopPropagation(); // Impede que o clique se propague
+            sideMenu.classList.toggle('active');
+        });
+
+        // Fecha menu ao clicar fora
+        document.addEventListener('click', function(event) {
+            // Verifica se o clique foi fora do menu e do ícone hamburger
+            if (!sideMenu.contains(event.target) && event.target !== burger) {
+                sideMenu.classList.remove('active');
+            }
+        });
+
+        // Impede que cliques dentro do menu fechem-no
+        sideMenu.addEventListener('click', function(event) {
+            event.stopPropagation();
+        });
+    });
+</script>
+
 </body>
 </html>

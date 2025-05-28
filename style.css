@@ -27,77 +27,122 @@ header h1 {
     font-family: 'Anton', sans-serif;
 }
 
-/* NAVEGAÇÃO PRINCIPAL */
+/* NAVEGAÇÃO */
 nav {
     background-color: #8B0000;
     display: flex;
-    justify-content: center;
-    padding: 10px 0;
+    align-items: center;
+    padding: 10px 20px;
     position: relative;
+    z-index: 100;
+
 }
 
+/* HAMBURGER */
+#burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 1001;
+    position: absolute;
+    left: 20px;
+}
+
+.hamburger-line {
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+    width: 100%;
+}
+
+/* NAV LINKS (sempre visíveis) */
 .nav-links {
     display: flex;
-    list-style: none;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    gap: 20px;
+    width: 100%; /* Ocupa toda a largura disponível */
+    margin: 0 auto; /* Margem automática para ajudar no alinhamento */
+
+}
+
+.nav-about {
+    color: white;
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    width: 100%; /* Ocupa toda a largura disponível */
+    margin: 0 auto; /* Margem automática para ajudar no alinhamento */
+    font-size: 70px;
+    text-align: center;
+    font-size: 60px;
+    font-family: 'Staatliches', sans-serif;
+    letter-spacing: 1px; /* Melhora a legibilidade */
 }
 
 .nav-links a {
     color: white;
     text-decoration: none;
-    margin: 0 20px;
     font-size: 16px;
     font-family: 'Montserrat', sans-serif;
-    transition: all 0.2s ease;
+    transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
     text-decoration: underline;
 }
 
-/* MENU HAMBURGER */
-.hamburger {
+/* SIDE MENU (menu lateral mobile) */
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #8B0000;
+    color: white;
     display: flex;
-    cursor: pointer;
-    padding: 10px;
-    position: absolute;
-    left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 1000;
     flex-direction: column;
-    justify-content: space-between;
-    height: 24px;
+    align-items: center;
+    gap: 15px;
+    padding-top: 60px;
+    padding: 20px;
+    transition: right 0.3s ease;
+    z-index: 1000;
 }
 
-.hamburger-line {
-    width: 25px;
-    height: 2px;
-    background-color: white;
-    transition: all 0.3s ease;
+.side-menu a {
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
 }
 
-/* SEÇÕES DO SITE */
+.side-menu a:hover {
+    text-decoration: underline;
+}
+
+.side-menu.active {
+    right: 0;
+}
+
+/* HERO */
 .hero {
     text-align: center;
-    margin: 0;
-    padding: 0;
 }
 
-.imagem_capa_1 {
-    width: 100%;
-    height: auto;            /* mantém a proporção correta */
-    display: block;
-    max-width: 1600px;       /* ou outro valor para limitar em ecrãs grandes */
-    margin: 0 auto;
-}
+.imagem_capa_1,
 .imagem_capa_2 {
     width: 100%;
-    height: auto;            /* mantém a proporção correta */
+    height: auto;
     display: block;
-    max-width: 1600px;       /* ou outro valor para limitar em ecrãs grandes */
+    max-width: 1600px;
     margin: 0 auto;
 }
 
+/* TÍTULOS */
 .section-title {
     text-align: center;
     font-size: 60px;
@@ -106,6 +151,7 @@ nav {
     font-family: 'Anton', sans-serif;
 }
 
+/* PRODUTOS */
 .product-gallery {
     display: flex;
     justify-content: center;
@@ -115,13 +161,17 @@ nav {
 }
 
 .product {
-    width: 150px;
-    height: 200px;
-    background-color: #ccc;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #555;
+    width: 200px;
+    height: 250px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    font-weight: bold;
+    transition: transform 0.2s;
+}
+
+.product:hover {
+    transform: scale(1.05);
 }
 
 /* FOOTER */
@@ -131,6 +181,7 @@ footer {
     background-color: #8B0000;
     color: white;
     font-size: 14px;
+    border-top: 1px solid #ffffff44;
 }
 
 .social-icons {
@@ -181,58 +232,16 @@ footer {
 
 /* RESPONSIVIDADE */
 @media (max-width: 768px) {
-    /* Header */
     header h1 {
         font-size: 48px;
     }
 
-    /* Navigation */
-    .hamburger {
+    #burger {
         display: flex;
     }
 
     .nav-links {
-        position: fixed;
-        top: 0;
-        left: -100%;
-        width: 70%;
-        height: 100vh;
-        background-color: #8B0000;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.3s ease;
-        z-index: 900;
-        padding-top: 60px;
-    }
-
-    .nav-links.active {
-        left: 0;
-        box-shadow: 2px 0 15px rgba(0,0,0,0.3);
-    }
-
-    .nav-links a {
-        margin: 15px 0;
-        font-size: 18px;
-        padding: 10px;
-    }
-
-    /* Hamburger animation */
-    .hamburger.active .hamburger-line:nth-child(1) {
-        transform: rotate(-45deg) translate(-5px, 6px);
-    }
-
-    .hamburger.active .hamburger-line:nth-child(2) {
-        opacity: 0;
-    }
-
-    .hamburger.active .hamburger-line:nth-child(3) {
-        transform: rotate(45deg) translate(-5px, -6px);
-    }
-
-    /* Other sections */
-    .hero {
-        height: 200px;
+        display: flex;
     }
 
     .product {
@@ -243,36 +252,3 @@ footer {
         gap: 15px;
     }
 }
-.side-menu {
-    position: fixed;
-    top: 0;
-    left: -100%;
-    width: 70%;
-    height: 100vh;
-    background-color: #8B0000;
-    color: white;
-    padding-top: 60px;
-    transition: left 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    z-index: 999;
-}
-
-.side-menu a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-}
-
-.side-menu a:hover {
-    text-decoration: underline;
-}
-
-.side-menu.active {
-    left: 0;
-}
-
-
-
