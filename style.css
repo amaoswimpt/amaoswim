@@ -49,20 +49,7 @@ nav {
     font-family: 'Montserrat', sans-serif;
     transition: all 0.2s ease;
 }
-.imagem_capa_1 {
-    width: 100%;         /* Preenche a largura do contêiner */
-    max-width: 800px;    /* Limita o tamanho máximo */
-    height: auto;        /* Mantém a proporção da imagem */
-    display: block;
-    margin: 0 auto;      /* Centraliza */
-}
-.imagem_capa_2 {
-    width: 100%;         /* Preenche a largura do contêiner */
-    max-width: 800px;    /* Limita o tamanho máximo */
-    height: auto;        /* Mantém a proporção da imagem */
-    display: block;
-    margin: 0 auto;      /* Centraliza */
-}
+
 .nav-links a:hover {
     text-decoration: underline;
 }
@@ -91,13 +78,24 @@ nav {
 
 /* SEÇÕES DO SITE */
 .hero {
-    background-color: #eee;
-    height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #888;
-    font-size: 24px;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.imagem_capa_1 {
+    width: 100%;
+    height: auto;            /* mantém a proporção correta */
+    display: block;
+    max-width: 1600px;       /* ou outro valor para limitar em ecrãs grandes */
+    margin: 0 auto;
+}
+.imagem_capa_2 {
+    width: 100%;
+    height: auto;            /* mantém a proporção correta */
+    display: block;
+    max-width: 1600px;       /* ou outro valor para limitar em ecrãs grandes */
+    margin: 0 auto;
 }
 
 .section-title {
