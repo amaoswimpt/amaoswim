@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Detalhes do Biquíni Classic 1</title>
+  <link rel="stylesheet" href="estilo-produtos.css">
+</head>
+<body>
+
+<header>
+  <h1>AMAO</h1>
+</header>
+
+<nav>
+  <div id="burger">
+    <div class="hamburger-line"></div>
+    <div class="hamburger-line"></div>
+    <div class="hamburger-line"></div>
+  </div>
+
+  <div class="nav-links">
+
+    <a>HOW TO ORDER?</a>
+  </div>
+</nav>
+
+<div class="side-menu" id="sideMenu">
+  <a href="index.html">HOME</a>
+  <a href="shopAll.html">SHOP ALL</a>
+  <a href="countryHeat.html">COUNTRY HEAT</a>
+  <a href="classics.html">CLASSICS</a>
+  <a href="tamanhos.html">SIZE CHART</a>
+  <a href="comoEncomendar.html">HOW TO ORDER?</a>
+</div>
+<div class = "como-encomendar">
+
+
+
+
+  <p>
+
+    Very simple! Please choose your favorite bikini along with sizes for top and bottom. For the last step just text us through our
+    <a href="https://Instagram.com/amaoswim" target="_blank" style="color: #8B0000; text-decoration: underline;">Instagram direct messages</a>
+    with your bikini of choice, sizing, name and address!
+    To ensure your order we simply ask for payment. Orders usually take 1 to 2 weeks!</p>
+
+
+</div>
+
+<footer>
+  <div class="social-icons">
+    <a href="https://instagram.com/amaoswim" target="_blank">
+      <i class="fab fa-instagram"></i>
+      <span class="instagram-handle">@amaoswim</span>
+    </a>
+  </div>
+  <div class="footer-links">
+    <!-- info -->
+    <a href="sobre.html">ABOUT US</a>
+
+    <!-- apoio ao cliente -->
+    <a href="contactos.html">CONTACT US</a>
+    <a href="trocas.html">RETURNS AND EXCHANGES</a>
+    <a href="pagamento.html">PAYMENT AND DELIVERY</a>
+
+  </div>
+
+  <p>© 2025 AMAO. All rights reserved.</p>
+</footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const burger = document.getElementById('burger');
+    const sideMenu = document.getElementById('sideMenu');
+
+    // Abre/fecha menu ao clicar no ícone hamburger
+    burger.addEventListener('click', function(event) {
+      event.stopPropagation(); // Impede que o clique se propague
+      sideMenu.classList.toggle('active');
+    });
+
+    // Fecha menu ao clicar fora
+    document.addEventListener('click', function(event) {
+      // Verifica se o clique foi fora do menu e do ícone hamburger
+      if (!sideMenu.contains(event.target) && event.target !== burger) {
+        sideMenu.classList.remove('active');
+      }
+    });
+
+    // Impede que cliques dentro do menu fechem-no
+    sideMenu.addEventListener('click', function(event) {
+      event.stopPropagation();
+    });
+  });
+</script>
+
+</body>
+</html>

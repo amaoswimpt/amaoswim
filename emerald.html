@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="estilo-produtos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+<header>
+    <h1>AMAO</h1>
+
+</header>
+
+<nav>
+    <div id="burger">
+        <div class="hamburger-line"></div>
+        <div class="hamburger-line"></div>
+        <div class="hamburger-line"></div>
+    </div>
+
+
+
+</nav>
+
+<div class="side-menu" id="sideMenu">
+    <a href="index.html">HOME</a>
+    <a href="shopAll.html">SHOP ALL</a>
+    <a href="countryHeat.html">COUNTRY HEAT</a>
+    <a href="classics.html">CLASSICS</a>
+    <a href="tamanhos.html">SIZE CHART</a>
+    <a href="comoEncomendar.html">HOW TO ORDER?</a>
+
+
+
+</div>
+
+<div class="produto-container">
+    <!-- Galeria tipo slider -->
+    <div class="slider-container">
+        <div class="slider">
+            <img src="imagens/emerald/emerald3.JPG" class="slide active">
+            <img src="imagens/emerald/emerald4.JPG" class="slide">
+        </div>
+        <button class="prev" onclick="mudarSlide(-1)">❮</button>
+        <button class="next" onclick="mudarSlide(1)">❯</button>
+    </div>
+
+    <!-- Detalhes -->
+    <div class="detalhes-produto">
+        <h1>EMERALD</h1>
+        <p class="preco">40,00€</p>
+        <div class = "descricao">
+            <p> All our bikinis are made from extremely elastic lycra. All bikinis are double lined with 2 layers of Lycra to ensure a durable and opaque piece. </p>
+
+            <p>Our available sizes are S,M and L, we advise you to check our
+                <a href="tamanhos.html" target="_blank" style="color: #8B0000; text-decoration: underline;">size chart</a>
+                to confirm your size before ordering! </p>
+
+            <p>
+                <a href="comoEncomendar.html" target="_blank" style="color: #8B0000; text-decoration: underline;">How to order?</a>
+                Very simple! Please choose your favorite bikini along with sizes for top and bottom. For the last step just text us through our
+                <a href="https://Instagram.com/amaoswim" target="_blank" style="color: #8B0000; text-decoration: underline;">instagram direct messages</a>
+                with your bikini of choice, sizing, name and address!
+                To ensure your order we simply ask for payment. Orders usually take 1 to 2 weeks!</p>
+        </div>
+    </div>
+</div>
+
+
+<footer>
+    <div class="social-icons">
+        <a href="https://instagram.com/amaoswim" target="_blank">
+            <i class="fab fa-instagram"></i>
+            <span class="instagram-handle">@amaoswim</span>
+        </a>
+    </div>
+    <div class="footer-links">
+        <!-- info -->
+        <a href="sobre.html">ABOUT US</a>
+
+        <!-- apoio ao cliente -->
+        <a href="contactos.html">CONTACT US</a>
+        <a href="trocas.html">RETURNS AND EXCHANGES</a>
+        <a href="pagamento.html">PAYMENT AND DELIVERY</a>
+
+    </div>
+
+    <p>© 2025 AMAO. All rights reserved.</p>
+</footer>
+
+
+<script>
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('.slide');
+
+    function mostrarSlide(n) {
+        slides.forEach((slide, i) => {
+            slide.classList.remove('active');
+            slide.style.display = 'none';
+        });
+        slides[n].style.display = 'block';
+        slides[n].classList.add('active');
+    }
+
+    function mudarSlide(direcao) {
+        slideIndex += direcao;
+        if (slideIndex < 0) slideIndex = slides.length - 1;
+        if (slideIndex >= slides.length) slideIndex = 0;
+        mostrarSlide(slideIndex);
+    }
+
+    // Inicializar
+    mostrarSlide(slideIndex);
+    document.addEventListener('DOMContentLoaded', function() {
+        const burger = document.getElementById('burger');
+        const sideMenu = document.getElementById('sideMenu');
+
+        // Abre/fecha menu ao clicar no ícone hamburger
+        burger.addEventListener('click', function(event) {
+            event.stopPropagation(); // Impede que o clique se propague
+            sideMenu.classList.toggle('active');
+        });
+
+        // Fecha menu ao clicar fora
+        document.addEventListener('click', function(event) {
+            // Verifica se o clique foi fora do menu e do ícone hamburger
+            if (!sideMenu.contains(event.target) && event.target !== burger) {
+                sideMenu.classList.remove('active');
+            }
+        });
+
+        // Impede que cliques dentro do menu fechem-no
+        sideMenu.addEventListener('click', function(event) {
+            event.stopPropagation();
+        });
+    });
+</script>
+
+</body>
+</html>
+>
